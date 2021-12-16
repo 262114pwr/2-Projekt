@@ -1,6 +1,6 @@
 # 2-Projekt
-System rezerwacyjny kliniki weterynaryjnej
-Pisany w 
+System rezerwacyjny kliniki weterynaryjneJ
+Pisany w
 Zawiera:
 1. stronę internetową
 2. kalendarz wizyt
