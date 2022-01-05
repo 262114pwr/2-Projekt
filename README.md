@@ -1,6 +1,6 @@
 # 2-Projekt
 System rezerwacyjny kliniki weterynaryjnej <br />
-Pisany w <br />
+Pisany w Python, Django, html, ccs<br />
 Zawiera:
 1. stronę internetową
 2. kalendarz wizyt
