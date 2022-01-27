@@ -2,11 +2,23 @@ from django import forms
 from .models import Pacjent, Lekarze, Wizyta
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
+class TimeInput(forms.TimeInput):
+    input_type = 'time'
+
+
 class RezerwacjaWizyty(forms.ModelForm):
 
     class Meta:
         model = Wizyta
-        fields = "__all__"
+        fields = ('wizyta_data', 'wizyta_time', 'wizyta_pacjent', 'wizyta_lekarz')
+        widgets = {
+            'wizyta_data': DateInput(),
+            'wizyta_time': TimeInput(),
+        }
 
 
 class DodajLekarza(forms.ModelForm):
