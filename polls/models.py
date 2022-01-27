@@ -1,7 +1,5 @@
-
-
 from django.db import models
-# from django.utils import timezone
+from django.urls import reverse
 
 
 class Lekarze(models.Model):
@@ -25,7 +23,6 @@ class Lekarze(models.Model):
     specjalizacja_naukowa = models.CharField(max_length=3, choices=SPEC_NAUK)
     specjalizacja_leczenia = models.CharField(max_length=3, choices=SPEC_LECZ)
     opis_text = models.TextField()
-    # zdjecie = models.ImageField()
     objects = models.Manager()
 
     def __str__(self):
@@ -36,6 +33,9 @@ class Lekarze(models.Model):
         verbose_name = "Lekarz"
         verbose_name_plural = "Lekarze"
         ordering = ['nazwisko']
+
+    def get_absolute_url(self):
+        return reverse('lekarze_new', kwargs={'pk': self.pk})
 
 
 class Pacjent(models.Model):
@@ -66,6 +66,9 @@ class Pacjent(models.Model):
         verbose_name_plural = "Pacjenci"
         ordering = ['nazwisko']
 
+    def get_absolute_url(self):
+        return reverse('pacjent_new', kwargs={'pk': self.pk})
+
 
 class Wizyta(models.Model):
     wizyta_data = models.DateField(blank=True, null=True, verbose_name='Data wizyty')
@@ -81,3 +84,6 @@ class Wizyta(models.Model):
         verbose_name = "Wizyta"
         verbose_name_plural = "Wizyty"
         ordering = ['wizyta_data']
+
+    def get_absolute_url(self):
+        return reverse('wizyta_new', kwargs={'pk': self.pk})

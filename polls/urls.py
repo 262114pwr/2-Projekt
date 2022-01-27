@@ -14,11 +14,25 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
+from django.views.generic import DeleteView
+from polls.views import LekarzeListView, WizytaListView, PacjentListView
+
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('wizyta_new', views.wizyta_new, name='wizyta_new'),
-    path('raporty', views.raporty, name='raporty'),
-    path('lekarz_new', views.lekarz_new, name='lekarz_new'),
-    path('pacjent_new', views.pacjent_new, name='pacjent_new'),
+    path('wizyta_list', WizytaListView.as_view(), name='wizyta_list'),
+    path('lekarze_form', views.lekarze_form, name='lekarze_form'),
+    path('pacjent_form', views.pacjent_form, name='pacjent_form'),
+    path('wizyta_form', views.wizyta_form, name='wizyta_form'),
+    path('pacjent_list', PacjentListView.as_view(), name='pacjent_list'),
+    path('lekarze_serch', views.lekarze_serch, name='lekarze_serch'),
+    path('lekarze_remove', views.lekarze_remove, name='lekarze_remove'),
+    path('pacjent_serch', views.pacjent_serch, name='pacjent_serch'),
+    path('pacjent_remove', views.pacjent_remove, name='pacjent_remove'),
+    path('wizyta_serch', views.wizyta_serch, name='wizyta_serch'),
+    path('wizyta_remove', views.wizyta_remove, name='wizyta_remove'),
+    path('lekarze_list', LekarzeListView.as_view(), name='lekarze_list'),
+    path('wizyta_delete/<wizyta_id>', views.wizyta_delete, name='wizyta_delete'),
+    path('pacjent_delete/<pacjent_id>', views.pacjent_delete, name='pacjent_delete'),
+    path('lekarze_delete/<lekarze_id>', views.lekarze_delete, name='lekarze_delete'),
 ]
