@@ -4,28 +4,29 @@ body {
     padding: 10px;
 }
 
-#menu {
+#menu, menu2  {
     margin: 0 auto;
 }
 
-#menu td {
+
+#menu td, menu2 td {
     padding: 10px 30px;
     font-family: 'Arial';
     font: bold 18px Verdana, Arial;
 }
 
-#menu td a {
+#menu td a, menu2 td a {
     color: #555555;
     text-decoration: none;
 }
 
-#menu td a:hover {
+#menu td a:hover, menu2 td a:hover {
    cursor: pointer;
    color: red;
    text-decoration: underline; 
 }
 
-#menu td a.wybrane {
+#menu td a.wybrane, menu2 td a.wybrane {
    text-decoration: underline; 
 }
 
@@ -53,157 +54,3 @@ body {
     border-radius: 5px;
 }
 
-
-/* tabela tygodniowa */
-
-.tbl_tydzien {
-  margin: 0 auto;
-  margin-bottom: 100px;
-}
-
-.td_dzien {
-  width: 150px;
-  text-align: center;
-  color: #333333;
-  vertical-align: top;
-}
-
-.td_przerwa {
-  width: 15px;
-}
-
-.linia_godziny {
-    border: 0;
-    border-top: 1px solid #cccccc;
-}
-
-.dzien_tygodnia {
- font-family: Verdana, Arial;
-}
-
-.wyroznienie {
-   background: #d3f2ff;
-   border-radius: 5px;
-   padding: 5px; 
-}
-
-.skreslenie {
-   color: #cccccc;
-   text-decoration: line-through;
-   cursor: not-allowed;
-   padding: 5px 15px;
-}
-
-.link_rezerwacji {
- color: #333333;
- text-decoration: none;
- padding: 5px 15px;
-}
-
-
-.link_rezerwacji:hover {
- background-color: #FEF4DC;
- border-radius: 3px;
-}
-
-.data {
- font-family: Verdana, Arial; 
- color: #3aaede;
- font-weight: bold; 
- line-height: 2em;
-}
-
-
-/* nawigacja po tygodniach */
-
-.td_strzalki {
- vertical-align: top; 
-}
-
-.td_strzalki a {
- font: bold 30px 'Arial Black', Arial;
- text-decoration: none;
- color: #3aaede;     
-}    
-
-.td_strzalki a:hover {
- text-decoration: none;
- color: red;     
-}    
-    
-/* formularz rezerwacji */
-
-.dzien_i_godzina {
-  font: 19px Arial;
-  color: #555555;  
-}
-
-.formularz {
-    width: 400px;
-    padding: 20px;
-    margin: 0 auto;
-    border: 1px solid #bbbbbb;
-    box-shadow: 2px 2px 5px #999999;
-    border-radius: 5px;
-    background-color: #eeeeee;
-    text-align: center;
-    font: 14px Verdana, Arial;
-    line-height: 1.5em;
-}
-
-.formularz_lekarz {
-  width: 170px;
-  padding: 5px;
-  line-height: 1.5em;
-  font-size: 14px;   
-}
-
-.formularz_imie, .formularz_nazwisko {
-  width: 170px;
-  padding: 5px; 
-  font: 14px Arial;  
-}
-
-.formularz_opis {
-  width: 360px; 
-  height: 100px;
-  padding: 5px; 
-  font: 14px Arial;
-}
-
-.submit {
-  font: bold 16px Verdana, Arial;
-  color: #888888;
-  padding: 5px 20px;
-  cursor: pointer;
-}
-
-.zapis_ok {
-  font: bold 22px Arial;
-  color: green;  
-}
-
-.zapis_ok a {
-  font: bold 14px Arial; 
-}
-
-.zapis_blad {
-  font: bold 22px Arial;
-  color: red;   
-}
-    
-/* tabela rezerwacji danego lekarza */
-.tabela_rezerwacji {
-  margin: 0 auto;
-  border-spacing: 0;  
-}
-.tabela_rezerwacji td {
-  font: 14px Arial;
-  color: #555555;
-  border-bottom: 1px solid #bbbbbb;
-  text-align: center; 
-  padding: 5px 10px; 
-}
-
-
-    

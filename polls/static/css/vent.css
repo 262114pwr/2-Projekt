@@ -1,3 +1,31 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: Tomato;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
 .page-header {
     background-color: #C25100;
     margin-top: 0;
@@ -22,7 +50,7 @@ h1, h2, h3, h4 {
 }
 
 .save {
-    float: right;
+    float: left;
 }
 
 .wizyta-form textarea, .wizyta-form input {
