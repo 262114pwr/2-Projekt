@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="pl">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- Latest compiled and minified CSS -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+     <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -14,32 +14,35 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <link href="//fonts.googleapis.com/css?family=Arial=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{% static 'css/vent.css' %}">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <title>Baza danych</title>
-    </head>
-    <body>
-        <table id="menu">
+    <title>Wizyty - rezerwacja - wyszukanie - usuniecie</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/vent.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<!-- MENU NAWIGACYJNE -->
+<table id="menu">
              <tr>
-              <td><a class="wybrane" href="{% url 'index' %}"><img src="{% static 'images/home.png' %}"
+              <td><a href="{% url 'index' %}"><img src="{% static 'images/home.png' %}"
                                                                    width="24" height="24"></a></td>
-              <td><a href="{% url 'wizyta_form' %}">Wizyty</a></td>
+              <td><a class="wybrane" href="{% url 'wizyta_form' %}">Wizyta</a></td>
               <td><a href="{% url 'pacjent_form' %}">Pacjenci</a></td>
               <td><a href="{% url 'lekarze_form' %}">Lekarze</a></td>
               <td><a href="{% url 'wizyta_list' %}">Listy</a></td>
              </tr>
         </table>
         <hr class="linia_naglowek">
-        <div class="page-header">
-            <h1><a href="/">Baza danych lecznicy dla zwierząt - Marta Bentkiewicz</a></h1>
-        </div>
-        <div>
-        <p class="center">
-            <img class="img-fluid" src="{% static 'images/iskra.jpg' %}">
-        </p>
-        </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<ul>
+        <li><a class="active" href="{% url 'wizyta_form' %}">Rezerwacja wizyty</a></li>
+        <li><a href="{% url 'wizyta_serch' %}">Wyszukanie wizyty</a></li>
+        <li><a href="{% url 'wizyta_remove' %}">Usuniecie wizyty</a></li>
+</ul>
+<hr class="linia_naglowek">
+    <form method="POST" class="RezerwacjaWizyty">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Dodaj wizyte</button>
+    </form>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    </body>
+</body>
 </html>

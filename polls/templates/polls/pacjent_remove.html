@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pl">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Pacjenci - dodanie - wyszukanie - usuniecie</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/vent.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+<!-- MENU NAWIGACYJNE -->
+<table id="menu">
+             <tr>
+              <td><a href="{% url 'index' %}"><img src="{% static 'images/home.png' %}"
+                                                                   width="24" height="24"></a></td>
+              <td><a href="{% url 'wizyta_form' %}">Wizyty</a></td>
+              <td><a class="wybrane" href="{% url 'pacjent_form' %}">Pacjenci</a></td>
+              <td><a href="{% url 'lekarze_form' %}">Lekarze</a></td>
+              <td><a href="{% url 'wizyta_list' %}">Listy</a></td>
+             </tr>
+</table>
+<hr class="linia_naglowek">
+    <ul>
+       <li><a href="{% url 'pacjent_form' %}">Dodanie pacjenta</a></li>
+       <li><a href="{% url 'pacjent_serch' %}">Wyszukanie pacjenta</a></li>
+       <li><a class="active" href="{% url 'pacjent_remove' %}">Usunięcie pacjenta</a></li>
+    </ul>
+<hr class="linia_naglowek">
+ <form action="" method="GET">
+        <label for="fname">Imie pacjenta:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Nazwisko pacjenta:</label><br>
+        <input type="text" id="lname" name="lname">
+        <br><br>
+        <button type="submit" class="btn btn-primary">Szukaj pacjenta</button>
+    </form>
+<br>
+<br>
+{% if wiele != 0 %}
+    {% for object in object %}
+            <div class="lekarze">
+                <div class="date">
+                <h1 style="background-color:DodgerBlue; color:Tomato;"><a>Pacjent:</a></h1>
+                </div>
+                <div class="date">
+                <h2 style="color:Green;"><a>Nazwisko: {{ object.nazwisko }}
+                <p>Imie: {{ object.imie }}</p></a></h2>
+                </div>
+                <div class="date">
+                <h3><a>Imformacje szczegółowe:
+                <p>Imie zwierzęcia: {{ object.imie_zwierza }}</p>
+                <p>Rodzaj zwierzęcia: {{ object.rodzaj_zwierza }}</p>
+                <p>Numer telefonu: {{ object.phone_number }}</p>
+                <p>Adres: {{ object.address }}</p>
+                <p>Powód wizyty: {{ object.description }}</p>
+                <p>Adres email: {{ object.email_address }}</p></a></h3>
+                </div>
+            </div>
+            <br>
+            <a href="{% url 'pacjent_delete' object.id %}" class="btn btn-danger" role="button">Usuń pacjenta</a>
+            <br>
+    {% endfor %}
+{% endif %}
+{% if wiele == 0 %}
+            <div class="lekarze">
+                <div class="date">
+                <h1 style="background-color:DodgerBlue; color:Tomato;"><a>Pacjent:</a></h1>
+                </div>
+                <div class="date">
+                <h2 style="color:Green;"><a>Nazwisko: {{ object.nazwisko }}
+                <p>Imie: {{ object.imie }}</p></a></h2>
+                </div>
+                <div class="date">
+                <h3><a>Imformacje szczegółowe:
+                <p>Imie zwierzęcia: {{ object.imie_zwierza }}</p>
+                <p>Rodzaj zwierzęcia: {{ object.rodzaj_zwierza }}</p>
+                <p>Numer telefonu: {{ object.phone_number }}</p>
+                <p>Adres: {{ object.address }}</p>
+                <p>Powód wizyty: {{ object.description }}</p>
+                <p>Adres email: {{ object.email_address }}</p></a></h3>
+                </div>
+            </div>
+            <br>
+            <a href="{% url 'pacjent_delete' object.id %}" class="btn btn-danger" role="button">Usuń pacjenta</a>
+            <br>
+{% endif %}
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</body>
+</html>
