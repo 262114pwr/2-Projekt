@@ -4,11 +4,11 @@ from .models import Pacjent, Lekarze, Wizyta
 
 class DateInput(forms.DateInput):
     input_type = 'date'
-
+# aby data wprowadzac jak w html5
 
 class TimeInput(forms.TimeInput):
     input_type = 'time'
-
+# aby time wprowadzac jak w html5
 
 class RezerwacjaWizyty(forms.ModelForm):
 

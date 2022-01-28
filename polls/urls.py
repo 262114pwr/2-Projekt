@@ -33,6 +33,11 @@ urlpatterns = [
     path('wizyta_remove', views.wizyta_remove, name='wizyta_remove'),
     path('lekarze_list', LekarzeListView.as_view(), name='lekarze_list'),
     path('wizyta_delete/<wizyta_id>', views.wizyta_delete, name='wizyta_delete'),
+    # wizyta_id zwraca strona
     path('pacjent_delete/<pacjent_id>', views.pacjent_delete, name='pacjent_delete'),
     path('lekarze_delete/<lekarze_id>', views.lekarze_delete, name='lekarze_delete'),
 ]
+# laczymy kod z Pythona z views z stronami html
+# kod views opisuje dzialanie strony a kod html opisuje wyglad strony
+# pacjent list lkasa
+# list jako klasa

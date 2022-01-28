@@ -6,8 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from django.views.generic import ListView
 from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
-from django.views import View
-from django.http import HttpResponseRedirect
+
 
 
 class PacjentCreateView(CreateView):
@@ -104,16 +103,17 @@ def pacjent_form(request):
     else:
         form = DodajPacjenta()
     return render(request, 'polls/pacjent_form.html', {'form': form})
-
+# dzialanie stony opisane przy pomocy klas django
+# uzycie formularza dodaj pacjenta, ktorego
 
 def lekarze_serch(request):
     lekarz_obj = None
     context = {}
 
-    if request.method == "GET":
-        szukane_imie = request.GET.get('fname')
+    if request.method == "GET":    # pobranie danych z html
+        szukane_imie = request.GET.get('fname') # przekazanie wprowadzanego tekstu z html do zmiennej z Pythona
         szukane_nazwisko = request.GET.get('lname')
-
+# logika dzialania aplikacji na podstawie wprowadzonych danych z html
         if szukane_imie is not None and szukane_nazwisko is not None:
             if len(szukane_imie) != 0 and len(szukane_nazwisko) != 0:
                 print("Jest pytanie - szukam imienia i nazwiska")
@@ -126,7 +126,7 @@ def lekarze_serch(request):
                     print("MultipleObjectsReturned")
                     lekarz_obj = Lekarze.objects.filter(imie=szukane_imie, nazwisko=szukane_nazwisko)
                     context = {"object": lekarz_obj, "wiele": len(lekarz_obj)}
-            else:
+        else:
                 print("Nie podano imienia nai nazwiska")
     print(context)
     return render(request, 'polls/lekarze_serch.html', context=context)
