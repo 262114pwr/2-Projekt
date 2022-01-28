@@ -40,8 +40,8 @@
  </ul>
 
 <hr class="linia_naglowek" style="width: 95%;">
-{% for wizyta in wizyty %}
-            <div class="wizyta">
+{% for wizyta in wizyty %} <!-- klasa WizytaListView przekazuje obiekt wizyty zawierajacy wszystkie rekordy bazy Wizyta-->
+            <div class="wizyta">-
                 <div class="date">
                 <h1 style="background-color:DodgerBlue; color:Tomato;"><a>Data wizyty: {{ wizyta.wizyta_data }}</a></h1>
                 </div>

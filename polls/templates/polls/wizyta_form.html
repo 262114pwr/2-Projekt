@@ -38,8 +38,8 @@
 </ul>
 <hr class="linia_naglowek">
     <form method="POST" class="RezerwacjaWizyty">
-        {% csrf_token %}
-        {{ form.as_p }}
+        {% csrf_token %} <!--% odniesienie do szablonu django generujacego token-->
+        {{ form.as_p }}  <!--}} odniesienie do formularza django-->
         <button type="submit" class="btn btn-primary">Dodaj wizyte</button>
     </form>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
